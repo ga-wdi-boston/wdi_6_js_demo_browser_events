@@ -1,68 +1,80 @@
-  // I'm going to write a function that changes the second table item to say "three"
-  // when I click on the table anywhere
-// This is global
-function modifyTableText() {
-  console.log(this);
-  document.getElementById("t2").innerHTML = "three";
-};
+// Our page hasn't loaded yet, so we have to make sure our document is ready before we do anything
+$(document).ready(function() {
+
+  // Example 1 - Basic Click Events
+  // We select the `#click-me-button` by ID using jQuery
+  // then we attach an event listener for clicks
+  // We give click an anonymous function, which executes on the click event
+  $("#click-me-button").click(function() {
+    alert("You did it! Check your console");
+    console.log("Print message here instead. Alerts are annoying");
+  });
+
+
+  // Example 2 - Click Events with Callbacks
+  // Anonymous functions aren't reusable. If we want reusable code
+  // Notice, we are just passing the name of the function, not invoking it! (no parens)
+  $("#callback-button").click(DemoApp.changeButtonColor);
+
+
+  // Example 3 - Selecting via Class with Callbacks
+  // We said that we made reusable code right? Let's use it!
+  $('.color-changing-list-element').click(DemoApp.changeButtonColor);
 
 
 
-// Things inside here are local to window.onload
-window.onload = function() {
-
-  var myTable = document.getElementById("outside-table");
-  myTable.addEventListener("click", modifyTableText);
+  // Example 4 - Altering Text with a click
+  // Note: some CSS was used here to reverse letters
+  $('#disorient').click(DemoApp.reverseLetters);
 
 
-  // Tracking mouse position
-  // document.getElementById("home").onmouseover = function(event){
-  //  console.log(event);
-  //  document.getElementById("x-coord").innerHTML = event.x;
-  //  document.getElementById("y-coord").innerHTML = event.y;
-  // };
+
+  // Example 5 - Clearing on focus
+  $("#color-field").focus(DemoApp.clearField);
 
 
-  // We should only have ONE of any given id
-  // So we can assume that we've got the right one
-  document.getElementById("test-box").onclick = function(event){
-    console.log("You Clicked the box!");
-  };
-  // It returns an array, so we need to select the first one
-  document.getElementsByTagName("h1")[0].onclick = function(event){
-    // console.log(this);
-    // console.log("You clicked the H1");
-    this.innerHTML = "What is happening?"
-  };
 
-  // Selecting multiple H2's
-  var all_h2s = document.getElementsByTagName("h2");
-  for (var i = 0; i < all_h2s.length; i++) {
-    all_h2s[i].onclick = function (event){
-      console.log("You clicked an H2. There are multiple of these!");
-    };
-  };
+  // Example 6 - Form submission
+  $("#color-input").submit(function(event){
+    // Gets the color from the form
+    var new_color = $('#color-field').val();
 
-  // This doesn't work because getElementsByClassName still returns an array
-  document.getElementsByClassName("dr-seuss").onclick = function(event) {
-    console.log("This isn't going to work");
-  };
+    // Only inserts if there is a color present
+    if (new_color > '') {
+      // Appends to the ul
+      $('#colors-list').append('<li>' + new_color + '</li>');
 
-  // But this works!
-  var all_h3s = document.getElementsByClassName("dr-seuss");
-  for (var i = 0; i < all_h3s.length; i++) {
-    all_h3s[i].onclick = function (event){
-      console.log("I do not like green eggs and ham!");
-    };
-  };
+      // Reset all form fields for this form
+      $('#color-field').val('');
+    }
 
-  document.getElementById("danger-box").onmouseover = function(event) {
-    console.log(event);
-    this.innerHTML = "I'm sorry Dave. I can't let you open the hatch.";
-  };
+    // Prevents the form from actually submitting
+    event.preventDefault();
+  });
+});
 
-  document.getElementById("danger-box").onmouseout = function(event) {
-    console.log(event);
-    this.innerHTML = "It's ok. Just don't think about it again.";
-  };
-};
+// Note everything is namespaced in DemoApp. Only one global variable!
+var DemoApp = {
+  changeButtonColor: function() {
+    // This ties in with Example 2
+    // Generates a random color
+    var random_color = '#'+Math.floor(Math.random()*16777215).toString(16);
+
+    // Uses `this` to refer to the button that triggered the event
+    $(this).css("color", random_color);
+
+    // Logs the current color, just for fun
+    console.log("Color is now: " + random_color);
+    return this; // Returning this allows for chaining of functions
+  },
+  reverseLetters: function() {
+    $(this).toggleClass('mirror');
+    return this;
+  },
+  clearField: function() {
+    $(this).val(''); // Clears the form field
+    console.log('Form field in focus and cleared');
+    return this;
+  }
+}
+

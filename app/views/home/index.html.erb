@@ -4,52 +4,37 @@
 
     <div class="cover-container">
 
-      <div class="masthead clearfix">
-        <div class="inner">
-          <h3 class="masthead-brand">Cover</h3>
-          <ul class="nav masthead-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Features</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div>
-      </div>
 
       <div class="inner cover">
         <h1 class="cover-heading">jQuery Events</h1>
         <p class="lead">First, setup the events. Then trigger them!</p>
         <p class="lead">
-          <a href="#" class="btn btn-lg btn-default">Learn more</a>
+          <a href="#" class="btn btn-lg btn-default" id='click-me-button'>Click Me!</a>
+          <a href="#" class="btn btn-lg btn-default" id='callback-button'>I use a callback!</a>
         </p>
-        <div id = "x-coord"></div>
-
-      </div>
-
-      <div class="mastfoot">
-        <div class="inner">
-          <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+        <div class='inner'>
+          <h3 class='color-changing-list-element'>We</h3>
+          <h3 class='color-changing-list-element'>Can</h3>
+          <h3 class='color-changing-list-element'>Change</h3>
+          <h4 class='color-changing-list-element'>(click us!)</h4>
         </div>
+
+        <h2 id='disorient'>D I S O R I E N T</h2>
+
+        <ul id='colors-list' class='text-left'>
+          <li>Red</li>
+          <li>Green</li>
+        </ul>
+
+        <form id='color-input'>
+          <input type="text" value="Add a color" id='color-field'></input>
+        </form>
+
       </div>
+
 
     </div>
 
   </div>
 
 </div>
-
-
-<div id = "y-coord"></div>
-
-<table id="outside-table">
-  <tr><td id="t1">one</td></tr>
-  <tr><td id="t2">two</td></tr>
-</table>
-
-<h1>Let's Learn Events</h1>
-<h2>There are two H2's</h2>
-<div id="test-box">What happens if you click me?</div>
-<h2>How can we deal with multiple H2s?</h2>
-<h3 class="dr-seuss">H3 One</h3>
-<h3 class="dr-seuss">H3 Two</h3>
-<h3 class="dr-seuss">H3 Red, H3 Blue</h3>
-<div id="danger-box">Don't even think about clicking on me- let alone mousing over. I know it's tempting.</div>
