@@ -5,3 +5,7 @@ We use *events* in JavaScript to respond to various input from the user in the w
 To setup this project, I've created a new Rails project, removed CoffeeScript from the `Gemfile` , and then executed `rails g controller Home index`. I then changed the root route to `root 'home#index'`. I've also included Bootstrap to make it prettier.
 
 Let's write all of our code in `home.js`
+
+## Resources
+
+* [jQuery Event Documention](http://api.jquery.com/category/events/)
