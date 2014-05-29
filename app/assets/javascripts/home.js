@@ -5,6 +5,6 @@ $(document).ready(function() {
 
 // Note everything is namespaced in DemoApp. Only one global variable!
 var DemoApp = {
-  aTrueFunction: function() { return true; };
+  aTrueFunction: function() { return true; }
 };
 
