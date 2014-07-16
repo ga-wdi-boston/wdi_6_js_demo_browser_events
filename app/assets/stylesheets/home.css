@@ -1,3 +1,16 @@
+.angry {
+  color: red;
+}
+
+.emphatic {
+  font-style: italic;
+}
+
+.framed {
+  border: 3px solid #fff;
+  border-radius: 3px;
+}
+
 /* Text-mirroring class for demo */
 
 .mirror {
