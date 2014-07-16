@@ -1,10 +1,8 @@
-// Our page hasn't loaded yet, so we have to make sure our document is ready before we do anything
 $(document).ready(function() {
-  // Stuff in here happens on page load
+  // Code in here will run once the browser has loaded all the page HTML
 });
 
-// Note everything is namespaced in DemoApp. Only one global variable!
+// Create a "namespace" object so we only have a single global variable
 var DemoApp = {
-  aTrueFunction: function() { return true; }
+  testFunction: function() { return true; }
 };
-
