@@ -1,5 +1,49 @@
 # Instructor Notes
 
+## Selectors
+
+* `*`
+* `element`
+* `.class`
+* `#id`
+* `selector1, selector2`
+* `ancestor descendant`
+* `parent > child`
+
+## Tree Traversal
+
+* `.first()`
+* `.last()`
+* `.children()`
+* `.find()`
+* `.parent()`
+* `.parents()`
+
+## Manipulation
+
+* `.attr()`
+* `.addClass()`
+* `.removeClass()`
+* `.hasClass()`
+* `.toggleClass()`
+* `.text()`
+* `.html()`
+* `.append()`
+* `.appendTo()`
+* Mention prepend, after, before
+
+## Effects
+
+* `.show()`
+* `.hide()`
+* `.toggle()`
+* Mention fading, sliding
+
+## Miscellaneous
+
+* `.each()`
+* `.data()`
+
 ## Events
 
 1. Have the "Click me!" button pop up an alert saying "You did it!" Attach the event handler as an inline anonymous function.
@@ -17,3 +61,5 @@
 7. Use a filtered event handler to have the buttons on each `word-list` item randomize that word's color (but not the button's color). This will require extracting the random color generator to a separate function, and that in turn will require attaching the event handler using `$.proxy` so `this` in the event handler will refer to `DemoApp` and not the event target.
 
 8. Have the color-randomizing buttons in the word list remove themselves when clicked. This will require referring to `event.target` since `this` is no longer the event target.
+
+9. Have the "Randomize all!" button randomize the colors of all the words in the word list, using `.each` to apply the color-changing event handler to all the list items.
